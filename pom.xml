@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.pinterest</groupId>
+    <groupId>com.rapido</groupId>
     <artifactId>secor</artifactId>
     <version>0.27</version>
     <packaging>jar</packaging>
@@ -498,8 +498,8 @@
             <!-- Thrift source generate plugin. -->
             <plugin>
                 <groupId>com.twitter</groupId>
-                <artifactId>maven-finagle-thrift-plugin</artifactId>
-                <version>0.0.9</version>
+                <artifactId>scrooge-maven-plugin</artifactId>
+                <version>20.1.0</version>
                 <executions>
                     <execution>
                         <id>thrift-sources</id>
@@ -507,14 +507,6 @@
                         <goals>
                             <goal>compile</goal>
                         </goals>
-                        <configuration>
-                            <thriftGenerators>
-                                <thriftGenerator>finagle</thriftGenerator>
-                            </thriftGenerators>
-                            <thriftOpts>
-                                <thriftOpt>finagle</thriftOpt>
-                            </thriftOpts>
-                        </configuration>
                     </execution>
                     <execution>
                         <id>thrift-test-sources</id>
@@ -522,20 +514,14 @@
                         <goals>
                             <goal>testCompile</goal>
                         </goals>
-                        <configuration>
-                            <thriftGenerators>
-                                <thriftGenerator>finagle</thriftGenerator>
-                            </thriftGenerators>
-                            <thriftOpts>
-                                <thriftOpt>finagle</thriftOpt>
-                            </thriftOpts>
-                        </configuration>
                     </execution>
                 </executions>
                 <configuration>
-                    <thriftGenerators>
-                        <thriftGenerator>finagle</thriftGenerator>
-                    </thriftGenerators>
+                    <thriftOpts>
+                        <thriftOpt>--finagle</thriftOpt>
+                    </thriftOpts>
+                    <language>java</language>
+                    <buildExtractedThrift>true</buildExtractedThrift>
                 </configuration>
             </plugin>
             <plugin>
